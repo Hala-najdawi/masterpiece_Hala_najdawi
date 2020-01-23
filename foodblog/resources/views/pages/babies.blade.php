@@ -78,7 +78,7 @@
 	<!-- Hero section end -->
 	<ul class="main-menu">
 	                <li><a href="{{route('kids.index',app()->getlocale()) }}">{{__('Smoothie and milkshake')}}</a></li> 
-	                <li><a href="{{route('babies.create',[app()->getlocale(),'type'=>'baby']) }}">{{__('Baby')}}</a></li>
+	                <li><a href="{{route('babies.create',app()->getlocale()) }}">{{__('Baby')}}</a></li>
 	                <li><a href="{{route('kids.create',app()->getlocale()) }}">{{__('Toddler')}}</a></li>
 					
 					

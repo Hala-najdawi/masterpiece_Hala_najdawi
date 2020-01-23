@@ -57,7 +57,7 @@
 				</div>
 				
 				<ul class="main-menu">
-					 <li><a href="contact.html">{{__('Contact')}}</a></li>
+					 
 					<li><a href="{{route('Sweets.index',app()->getlocale())}}">{{__('Sweets')}}</a></li>
 					<li><a href="{{route('LunchBoxes.index',app()->getlocale())}}">{{__('Lunch Box')}}</a></li> 
 					<li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li>
@@ -76,32 +76,14 @@
 		</div>
 	</section>
 	<!-- Hero section end -->
-	<ul class="main-menu">
-	                <li><a href="recipes1.php">{{__('Smoothie and milkshake')}}</a></li> 
-	                <li><a href="recipes1. php">{{__('Baby')}}</a></li>
-	                <li><a href="recipes1.php">{{__('Toddler')}}</a></li>
-					<!-- <li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li> -->
-					
-				</ul>
+	
 
 	<!-- Search section -->
 	<div class="search-form-section">
 		<div class="sf-warp">
 			<div class="container">
 				<form class="big-search-form">
-					<select>
-						<option>All Recipes Categories</option>
-						<option>Pizza</option>
-						<option>Salads</option>
-						<option>Desserts</option>
-						<option>Side Dishes</option>
-					</select>
-					<select>
-						<option>All Ingredients</option>
-						<option>Breakfast</option>
-						<option>Lunch</option>
-						<option>Dinner</option>
-					</select>
+					
 					<input type="text" placeholder="Search Receipies">
 					<button class="bsf-btn">Search</button>
 				</form>
@@ -131,13 +113,7 @@
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{$meal->name}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								
 
 							</div>
 						</div>
@@ -182,9 +158,6 @@
 						<a href="#"><i class="fa fa-pinterest"></i></a>
 						<a href="#"><i class="fa fa-facebook"></i></a>
 						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
 					</div>
 				</div>
 				<div class="col-lg-6 text-lg-right">

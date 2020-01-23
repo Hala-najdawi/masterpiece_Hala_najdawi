@@ -16,19 +16,7 @@ class RatingController extends Controller
     {
         //
     }
-    public function setrating(Request $request){
-        return new RatingResource(Rating::create([
-           'baby_id'=>$request->get('babies'),
-           //'lunchBox_id'=>$request->get('lunch_Box'),
-          // 'sweet_id'=>$request->get('sweets'),
-           'rating'=>$request->get('rating'),
-           
-        ]));
-
-    }
-    public function getrating(Request $request){
-        return RatingResource::collection(Rating::all()-> where('baby-id',$id));
-    }
+ 
     /**
      * Show the form for creating a new resource.
      *

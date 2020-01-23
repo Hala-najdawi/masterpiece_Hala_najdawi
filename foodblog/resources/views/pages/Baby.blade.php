@@ -82,7 +82,7 @@
 	                <li><a href="{{route('kids.index',app()->getlocale()) }}">{{__('Smoothie and milkshake')}}</a></li>  
 	                <li><a href="{{route('babies.create',app()->getlocale()) }}">{{__('Baby')}}</a></li>
 	                <li><a href="{{route('kids.create',app()->getlocale()) }}">{{__('Toddler')}}</a></li>
-					<!-- <li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li> -->
+					<!-- <li><a href="">'Baby&Toddler'</a></li>  -->
 					
 				</ul>
 
@@ -90,21 +90,8 @@
 	<div class="search-form-section">
 		<div class="sf-warp">
 			<div class="container">
-				<form class="big-search-form">
-					<select>
-						<option>All Recipes Categories</option>
-						<option>Pizza</option>
-						<option>Salads</option>
-						<option>Desserts</option>
-						<option>Side Dishes</option>
-					</select>
-					<select>
-						<option>All Ingredients</option>
-						<option>Breakfast</option>
-						<option>Lunch</option>
-						<option>Dinner</option>
-					</select>
-					<input type="text" placeholder="Search Receipies">
+				<form class="big-search-form" action="{{ route('kids.store',app()->getlocale()) }}" method="get">
+					<input type="text" name="search" placeholder="Search Receipies">
 					<button class="bsf-btn">Search</button>
 				</form>
 			</div>

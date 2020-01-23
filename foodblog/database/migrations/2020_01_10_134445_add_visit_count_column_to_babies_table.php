@@ -14,7 +14,8 @@ class AddVisitCountColumnToBabiesTable extends Migration
     public function up()
     {
         Schema::table('babies', function (Blueprint $table) {
-            //
+            $table->integer('visit_count');
+           
         });
     }
 
@@ -26,7 +27,7 @@ class AddVisitCountColumnToBabiesTable extends Migration
     public function down()
     {
         Schema::table('babies', function (Blueprint $table) {
-            //
+            $table->dropColumn('visit_count');
         });
     }
 }

@@ -78,10 +78,20 @@ class BabyController extends Controller
      * @param  \App\Baby  $baby
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Baby $baby)
+    public function update(Request $request,$language,$id)
     {
-        // 
         
+      
+       $post = Baby::find($id);
+       //dd($id);
+        $VisitCount= $request->VisitCount;
+       // dd($VisitCount);
+        $post->visit_count = $VisitCount;
+        //dd($post->visit_count);
+        
+        $post->save();
+        
+       return redirect()->route('babies.show',[app()->getlocale(),'id'=>$post->id]);    
     }
 
     /**
@@ -94,13 +104,5 @@ class BabyController extends Controller
     {
         //
     }
-    public function toddler()
-    {
-        //
-        // $posts = Baby::select('*')
-        // ->where('type' ,'toddler')
-        // ->get();
-         //return view('pages/babies',['posts'=>$posts]);
-         return("what");
-    }
+   
 }

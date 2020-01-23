@@ -11,7 +11,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">  
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700" rel="stylesheet">
-
+     <!-- add icon -->
+	 <meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="../../css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="../../css/font-awesome.min.css"/>
@@ -177,13 +179,26 @@
 	<section class="comment-section spad pt-0">
 		<div class="container">
 	
+	
+  
+  <form  name="fbCommentCountform" id="fbCommentCountForm" action="{{ route('babies.update',[app()->getlocale(),'id'=>$post->id]) }}" method="POST">
+    {{ csrf_field() }}
+    <input type="hidden" name="_method" value="PUT">
+    <input type="text" name="VisitCount" value="{{$post->visit_count}}" id="postvisitcount">
+  
+	<button><i class='fas fa-heart'></i></button>
+
+  </form>
+  
 			<h4 style="text-align: right;">{{__('Leave a comment')}}</h4>
 			
 <div id="fb-root"></div>
 <div  id="facebookCommentContainer">
-<span><div class="fb-comments-count" data-href="http://127.0.0.1:8000/1/babies/ar"></span>
+<div id="fbCommentCount" style="display: none;">
+    <span class="fb-comments-count" data-href="{{ Request::url() }}"></span>
+  </div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v5.0"></script>
-<div class="fb-comments" data-href="http://127.0.0.1:8000/1/babies/ar" data-width="" data-numposts="10"></div>
+<div class="fb-comments" data-href="http://127.0.0.1:8000/1/babies/ar/{{$post->id}}" data-width="" data-numposts="10"></div>
 		</div>
 		</div>
 	</section>
@@ -243,5 +258,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
+	<script>
+	
+    setTimeout(function() {
+	
+      let visitcount=document.getElementById("postvisitcount").value;
+	  let visitcountplusone=parseInt(visitcount)+1;
+	  document.getElementById("postvisitcount").value=visitcountplusone;
+	  let siderBar=localStorage.setItem("id",visitcountplusone ); 
+      var $formVar = $('form');
+     
+		
+
+      $.ajax({
+        url: $formVar.prop('{{ route('babies.update',[app()->getlocale(),'id'=>$post->id]) }}'),
+        method: 'PUT',
+        data: $formVar.serialize(),
+      });
+      }, 1000);
+	   
+	  </script>
+
 </body>
 </html>

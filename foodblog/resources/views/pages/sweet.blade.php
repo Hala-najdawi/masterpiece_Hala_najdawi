@@ -78,9 +78,9 @@
 	</section>
 	<!-- Hero section end -->
 	<ul class="main-menu">
-	                <li><a href="{{route('kids.index',app()->getlocale()) }}">{{__('Smoothie and milkshake')}}</a></li>  
-	                <li><a href="{{route('babies.create',app()->getlocale()) }}">{{__('Baby')}}</a></li>
-	                <li><a href="{{route('kids.create',app()->getlocale()) }}">{{__('Toddler')}}</a></li>
+	                <!-- <li><a href="{{route('kids.index',app()->getlocale()) }}">{{__('biscuits')}}</a></li>  
+	                <li><a href="{{route('babies.create',app()->getlocale()) }}">{{__('jelly')}}</a></li>
+	                <li><a href="{{route('kids.create',app()->getlocale()) }}">{{__('Cake')}}</a></li> -->
 					<!-- <li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li> -->
 					
 				</ul>
@@ -90,19 +90,7 @@
 		<div class="sf-warp">
 			<div class="container">
 				<form class="big-search-form">
-					<select>
-						<option>All Recipes Categories</option>
-						<option>Pizza</option>
-						<option>Salads</option>
-						<option>Desserts</option>
-						<option>Side Dishes</option>
-					</select>
-					<select>
-						<option>All Ingredients</option>
-						<option>Breakfast</option>
-						<option>Lunch</option>
-						<option>Dinner</option>
-					</select>
+					
 					<input type="text" placeholder="Search Receipies">
 					<button class="bsf-btn">Search</button>
 				</form>
@@ -132,13 +120,7 @@
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{$post->name}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								
 
 							</div>
 						</div>

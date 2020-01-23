@@ -21,9 +21,10 @@ Route::group(['prefix'=>'{language}'],function(){
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('kids', 'KidsController');
-//Route::get('babies', 'KidsController@create');
+
+
 Route::resource('babies', 'BabyController');
-Route::get('babies\toddler', 'BabyController@toddler');
+
 
 Route::resource('Sweets', 'SweetController');
 Route::resource('LunchBoxes', 'LunchBoxController');

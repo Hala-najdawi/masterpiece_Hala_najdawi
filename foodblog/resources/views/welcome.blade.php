@@ -48,12 +48,7 @@
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login',app()->getlocale()) }}">Login admin</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register',app()->getlocale()) }}">Register</a>
-                        @endif
+                    
                     @endauth
                 </div>
             @endif
@@ -74,7 +69,7 @@
 				<ul class="main-menu">
 					<!-- <li><a href="about.html">Features</a></li>
 					<li><a href="#">Reviews</a></li> -->
-					 <li><a href="contact.html">{{__('Contact')}}</a></li>
+					
 					<li><a href="{{route('Sweets.index',app()->getlocale())}}">{{__('Sweets')}}</a></li>
 					<li><a href="{{route('LunchBoxes.index',app()->getlocale())}}">{{__('Lunch Box')}}</a></li> 
 					<li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li>
@@ -150,64 +145,40 @@
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{__('pumpkin and potatos mash')}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-md-6">
 					<div class="recipe">
-						<img src="img/recipes/salami sub.jpg" alt="">
+						<img src="img/recipes/chocolate-smoothie.webp" alt="">
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
-								<h3>{{__('Salami subs')}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								<h3>{{__('Healthy chocolate smoothie')}}</h3>
+							
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="recipe">
-						<img src="img/recipes/lemon-almond-biscotti.jpg" alt="">
+						<img src="img/recipes/pasta.webp" alt="">
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
-								<h3>{{__('Lemon almond biscotti')}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								<h3>{{__('pasta')}}</h3>
+							
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="recipe">
-						<img src="img/recipes/mini-frittata.jpg" alt="">
+						<img src="img/recipes/mini-frittata.webp" alt="">
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{__('Mini frittata')}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -218,13 +189,7 @@
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{__('Orange blender cake')}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -235,13 +200,13 @@
 						<div class="recipe-info-warp">
 								<div class="recipe-info">
 								<h3>{{__('blueberry muffins')}}</h3>
-								<div class="rating">
+								<!-- <div class="rating">
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star is-fade"></i>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -482,7 +447,7 @@
 				</div>
 				<div class="col-lg-6 text-lg-right">
 					<ul class="footer-menu">
-					<li><a href="contact.html">{{__('Contact')}}</a></li>
+					
 					<li><a href="recipes.html">{{__('Sweets')}}</a></li>
 					<li><a href="recipes.html">{{__('Lunch Box')}}</a></li>
 					<li><a href="recipes.html">{{__('Baby&Toddler')}}</a></li>
