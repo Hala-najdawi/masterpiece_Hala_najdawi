@@ -21,8 +21,7 @@ class CreateBabiesTable extends Migration
             $table->text('methods');
             $table->text('ingredient');
             $table->string('type');
-            $table->unsignedBigInteger('rating_id');
-            $table->foreign('rating_id')->references('id')->on('Rating');
+            $table->string('category');
             $table->timestamps();
         });
     }

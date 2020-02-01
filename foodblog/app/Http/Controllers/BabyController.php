@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Baby;
+use App\Rating;
+USE App\Lunch_Box;
 use Illuminate\Http\Request;
 
 class BabyController extends Controller
@@ -17,7 +19,9 @@ class BabyController extends Controller
     {
         //
        //return view('pages/Baby');
-       $posts=Baby::paginate(12);
+       $posts = Baby::select('*')
+       ->where('category','baby')
+       ->get();
        // dd($posts);
         return view('pages/Baby',['posts'=>$posts]);
     }
@@ -81,17 +85,17 @@ class BabyController extends Controller
     public function update(Request $request,$language,$id)
     {
         
+       
       
        $post = Baby::find($id);
-       //dd($id);
+      
         $VisitCount= $request->VisitCount;
-       // dd($VisitCount);
-        $post->visit_count = $VisitCount;
-        //dd($post->visit_count);
+        //dd($VisitCount);
+        $post->like_count = $VisitCount;
+        //dd($post->like_count);
         
         $post->save();
-        
-       return redirect()->route('babies.show',[app()->getlocale(),'id'=>$post->id]);    
+      return redirect()->route('babies.show',[app()->getlocale(),'id'=>$post->id]);    
     }
 
     /**

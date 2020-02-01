@@ -41,10 +41,7 @@
 					<a href="#"><i class="fa fa-twitter"></i></a>
 					
 				</div>
-				<div class="user-panel">
-					<a href="#">Register</a> / 
-					<a href="#">Login</a>
-				</div>
+				
 			</div>
 		</div>
 		<div class="header-bottom">
@@ -57,9 +54,9 @@
 				</div>
 				
 				<ul class="main-menu">
-					<!-- <li><a href="contact.html">{{__('Contact')}}</a></li>
-					<li><a href="recipes1.html">{{__('Sweets')}}</a></li>
-					<li><a href="recipes1.php">{{__('Lunch Box')}}</a></li> -->
+					 
+					<li><a href="{{route('Sweets.index',app()->getlocale())}}">{{__('Sweets')}}</a></li>
+					<li><a href="{{route('LunchBoxes.index',app()->getlocale())}}">{{__('Lunch Box')}}</a></li> 
 					<li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li>
 					<li><a href="{{ url('/') }}">{{__('Home') }}</a></li>
 				</ul>
@@ -79,7 +76,9 @@
 	<ul class="main-menu">
 	                <li><a href="{{route('kids.index',app()->getlocale()) }}">{{__('Smoothie and milkshake')}}</a></li> 
 	                <li><a href="{{route('babies.create',app()->getlocale()) }}">{{__('Baby')}}</a></li>
-	                <li><a href="{{route('kids.create',app()->getlocale()) }}">{{__('Toddler')}}</a></li>
+	                <li><a href="{{route('Rating.create',app()->getlocale()) }}">{{__('Toddler')}}</a></li>
+					<li><a href="{{route('LunchBoxes.create',app()->getlocale()) }}">{{__('biscuits&cake')}}</a></li>  
+	                <li><a href="{{route('Sweets.create',app()->getlocale()) }}">{{__('jelly')}}</a></li>
 					
 					
 				</ul>
@@ -88,21 +87,8 @@
 	<div class="search-form-section">
 		<div class="sf-warp">
 			<div class="container">
-				<form class="big-search-form">
-					<select>
-						<option>All Recipes Categories</option>
-						<option>Pizza</option>
-						<option>Salads</option>
-						<option>Desserts</option>
-						<option>Side Dishes</option>
-					</select>
-					<select>
-						<option>All Ingredients</option>
-						<option>Breakfast</option>
-						<option>Lunch</option>
-						<option>Dinner</option>
-					</select>
-					<input type="text" placeholder="Search Receipies">
+				<form class="big-search-form" action="{{route('kids.create',app()->getlocale()) }}" >
+					<input type="text" placeholder="Search Receipies" name="search" style="text-align:end;">
 					<button class="bsf-btn">Search</button>
 				</form>
 			</div>
@@ -124,29 +110,25 @@
 			<div class="row">
 			@foreach($posts as $post)
 				<div class="col-lg-4 col-md-6">
-				<div class="recipe">
+					<div class="recipe">
 					 <a href="{{route('babies.show',[app()->getlocale(),'id'=>$post->id]) }} "> 
 						<img src="../../{{$post->img}}" alt="">
-                          </a>
                           
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{$post->name}}</h3>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
+								
 
 							</div>
 						</div>
 					</div>
 				</div>
-			@endforeach
+                 </a>
+				@endforeach
 				
 			</div>
+				
+			
 			<div class="site-pagination">
 				<span>01</span>
 				<a href="#">02</a>
@@ -183,18 +165,15 @@
 						<a href="#"><i class="fa fa-pinterest"></i></a>
 						<a href="#"><i class="fa fa-facebook"></i></a>
 						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-						<a href="#"><i class="fa fa-linkedin"></i></a>
+						
 					</div>
 				</div>
 				<div class="col-lg-6 text-lg-right">
 					<ul class="footer-menu">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Features</a></li>
-						<li><a href="#">Receipies</a></li>
-						<li><a href="#">Reviews</a></li>
-						<li><a href="#">Contact</a></li>
+					<li><a href="{{route('Sweets.index',app()->getlocale())}}">{{__('Sweets')}}</a></li>
+					<li><a href="{{route('LunchBoxes.index',app()->getlocale())}}">{{__('Lunch Box')}}</a></li> 
+					<li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li>
+					<li><a href="{{ url('/') }}">{{__('Home') }}</a></li>
 					</ul>
 					<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>

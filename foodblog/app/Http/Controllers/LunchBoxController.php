@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lunch_Box;
+use App\Baby;
 use Illuminate\Http\Request;
 
 class LunchBoxController extends Controller
@@ -14,9 +15,9 @@ class LunchBoxController extends Controller
      */
     public function index()
     {
-        $meals=Lunch_Box::paginate(12);
-       // dd($posts);
-       //return("hello");
+        $meals = Baby::select('*')
+        ->where('category' ,'lunchbox')
+        ->get();
        return view('pages/lunchBox',['meals'=>$meals]);
     }
 
@@ -27,7 +28,11 @@ class LunchBoxController extends Controller
      */
     public function create()
     {
-        //
+        $posts = Baby::select('*')
+        ->where('type' ,'biscuits&cake')
+        ->get(); // you were missing the get method
+        return view('pages/view',['posts'=>$posts]);
+       
     }
 
     /**
@@ -38,7 +43,9 @@ class LunchBoxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     
+            
+       
     }
 
     /**
@@ -49,7 +56,7 @@ class LunchBoxController extends Controller
      */
     public function show($language,$id)
     {
-        $post =Lunch_Box::find($id);
+        $post =Baby::find($id);
         //dd($id);
         return view('pages/recipe-single',['post'=> $post]);
     }
@@ -62,7 +69,7 @@ class LunchBoxController extends Controller
      */
     public function edit(Lunch_Box $lunch_Box)
     {
-        //
+       
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddVisitCountColumnToBabiesTable extends Migration
+class AddLikeCountColumnToBabiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddVisitCountColumnToBabiesTable extends Migration
     public function up()
     {
         Schema::table('babies', function (Blueprint $table) {
-            $table->integer('visit_count');
-           
+            $table->integer('like_count');
         });
     }
 
@@ -27,7 +26,8 @@ class AddVisitCountColumnToBabiesTable extends Migration
     public function down()
     {
         Schema::table('babies', function (Blueprint $table) {
-            $table->dropColumn('visit_count');
+            //
+            $table->dropColumn('like_count');
         });
     }
 }

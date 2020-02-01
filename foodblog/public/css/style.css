@@ -957,8 +957,9 @@ ol {
 	padding: 0 25px;
 	margin-right: 17px;
 	width: calc(40.6% - 17px);
-	float: left;
+	float:right;
 	font-size: 14px;
+	margin-right: 22%;
 }
 
 .big-search-form .bsf-btn {
@@ -968,6 +969,7 @@ ol {
 	color: #fff;
 	min-width: 132px;
 	background: #474747;
+	margin-left:25%;
 }
 
 .big-search-form ::-webkit-input-placeholder {

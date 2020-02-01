@@ -138,80 +138,29 @@
 			<div class="section-title text-right ">
 				<h2>{{__('Latest recipes')}}</h2>
 			</div>
+			
 			<div class="row">
+			@foreach($posts as $post)
+			@if($post->created_at <= '23-12-2019')
 				<div class="col-lg-4 col-md-6">
 					<div class="recipe">
-						<img src="img/recipes/pumpkin-mashed-potatoes-.jpg" alt="">
+					
+						<img src="{{$post->img}}" alt="">
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
-								<h3>{{__('pumpkin and potatos mash')}}</h3>
+								<h3>{{$post->name}}</h3>
 								
+								<h3>{{date('F d,Y',strtotime($post->created_at))}}</h3>
+						
 							</div>
 						</div>
+						
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/chocolate-smoothie.webp" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>{{__('Healthy chocolate smoothie')}}</h3>
-							
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/pasta.webp" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>{{__('pasta')}}</h3>
-							
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/mini-frittata.webp" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>{{__('Mini frittata')}}</h3>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/Orange blender cake.webp" alt="">
-						<div class="recipe-info-warp">
-							<div class="recipe-info">
-								<h3>{{__('Orange blender cake')}}</h3>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="recipe">
-						<img src="img/recipes/blueberry.jpg" alt="">
-						<div class="recipe-info-warp">
-								<div class="recipe-info">
-								<h3>{{__('blueberry muffins')}}</h3>
-								<!-- <div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div> -->
-							</div>
-						</div>
-					</div>
-				</div>
+				@endif
+				@endforeach
 			</div>
+
 		</div>
 	</section>
 	<!-- Recipes section end -->
@@ -224,157 +173,28 @@
 						<h3>{{__('Top rated recipes')}}</h3>
 					</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6 ftw-warp">
+			@foreach($posts as $post)
+				<div class="col-lg-8 col-md-6 ftw-warp" style="padding-left:500px">
+				
+					<ul class="sp-recipes-list">
 					
-					<ul class="sp-recipes-list">
 						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/salad.jpg"></div>
+						<a href="{{route('babies.show',[app()->getlocale(),'id'=>$post->id]) }} "> 
+							<div class="rl-thumb set-bg" data-setbg="{{$post->img}}"></div>
 							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Salad in a jar')}}</h6>
+								<span>{{$post->updated_at}}</span>
+								<h6>{{$post->name}}</h6>
 								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
+									<i class="fa fa-heart">{{$post->like_count}}</i>
 								</div>
 							</div>
+							</a>
 						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/banana-chips.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Baked banana chips')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/3.webp"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Peach pineapple and coconut popsicles')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/Salmon-Fishcakes.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Fish cakes')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/4.webp"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Roasted chickpeas')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
+						
 					</ul>
+					
 				</div>
-				<div class="col-lg-4 col-md-6 ftw-warp">
-				
-					<ul class="sp-recipes-list">
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/avocado.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Banana and avocado puree')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/pure.jpg"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__("Baby's first vegetable purees")}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/chocolate-smoothie.webp"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Healthy chocolate smoothie')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/apple-and-pumpkin-soup.webp"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Apple, pumpkin and cheddar soup')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="rl-thumb set-bg" data-setbg="img/thumb/1.webp"></div>
-							<div class="rl-info">
-								<span>March 14, 2018</span>
-								<h6>{{__('Sesame bars')}}</h6>
-								<div class="rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star is-fade"></i>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				
+				@endforeach
 				</div>
 			</div>
 		</div>
@@ -386,11 +206,11 @@
 	<section class="review-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-md-8 offset-lg-0 offset-md-2">
+				<div class="col-lg-6 col-md-8 offset-lg-4 offset-md-2">
 					<div class="review-item">
 						<div class="">
 							<h6 style="text-align:right">{{__('Tips')}}</h6>
-							<div class="author-meta">
+							<div class="author-meta" >
 								
 								<p>
 							{{__("Put sweets in their place. Occasional sweets are fine, but don't turn dessert into the main reason for eating dinner. When dessert is the prize for eating dinner, kids naturally place more value on the cupcake than the broccoli. Try to stay neutral about foods.")}}
@@ -400,18 +220,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-8 offset-lg-0 offset-md-2">
-					<div class="review-item">
-						<div class="">
-							
-							<h6 style="text-align:right">{{__('Tips')}}</h6>
-							<div class="author-meta">
-								
-								<p>{{__("Kids do as you do. Be a role model and eat healthy yourself. When trying to teach good eating habits, try to set the best example possible. Choose nutritious snacks, eat at the table, and don't skip meals.")}}</p>
-							</div>
-						</div>
-					</div>
-				</div>
+			
 			</div>
 		</div>
 	</section>
@@ -448,10 +257,10 @@
 				<div class="col-lg-6 text-lg-right">
 					<ul class="footer-menu">
 					
-					<li><a href="recipes.html">{{__('Sweets')}}</a></li>
-					<li><a href="recipes.html">{{__('Lunch Box')}}</a></li>
-					<li><a href="recipes.html">{{__('Baby&Toddler')}}</a></li>
-					<li><a href="#">{{__('Home') }}</a></li>
+					<li><a href="{{route('Sweets.index',app()->getlocale())}}">{{__('Sweets')}}</a></li>
+					<li><a href="{{route('LunchBoxes.index',app()->getlocale())}}">{{__('Lunch Box')}}</a></li> 
+					<li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li>
+					<li><a href="{{ url('/') }}">{{__('Home') }}</a></li>
 					</ul>
 					<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>

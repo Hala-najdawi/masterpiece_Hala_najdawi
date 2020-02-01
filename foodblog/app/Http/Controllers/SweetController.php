@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sweet;
+use App\Baby;
 use Illuminate\Http\Request;
 
 class SweetController extends Controller
@@ -14,8 +15,11 @@ class SweetController extends Controller
      */
     public function index()
     {
-        $posts=Sweet::paginate(12);
-        // dd($posts);
+        $posts = Baby::select('*')
+       ->where('category' ,'sweet')
+       ->get();
+        //dd($posts);
+       
          return view('pages/sweet',['posts'=>$posts]);
     }
 
@@ -27,6 +31,10 @@ class SweetController extends Controller
     public function create()
     {
         //
+        $posts = Baby::select('*')
+        ->where('type' ,'jelly')
+        ->get(); // you were missing the get method
+        return view('pages/babies',['posts'=>$posts]);
     }
 
     /**
@@ -48,7 +56,7 @@ class SweetController extends Controller
      */
     public function show($language,$id)
     {
-        $post = Sweet::find($id);
+        $post = Baby::find($id);
         //dd($id);
         return view('pages/recipe-single',['post'=> $post]);
     }
@@ -71,9 +79,19 @@ class SweetController extends Controller
      * @param  \App\Sweet  $sweet
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sweet $sweet)
+    public function update(Request $request,$language,$id)
     {
-        //
+        $post = Sweet::find($id);
+       //dd($id);
+        $VisitCount= $request->VisitCount;
+        // dd($VisitCount);
+         $post->visit_count = $VisitCount;
+         //dd($post->visit_count);
+         
+         $post->save();
+         return"sweet";
+         
+        //return redirect()->route('babies.show',[app()->getlocale(),'id'=>$post->id]);
     }
 
     /**

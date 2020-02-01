@@ -11,24 +11,25 @@
 |
 */
 Route::redirect('/','/ar');
-//Route::redirect('/','/Baby');
+
 Route::group(['prefix'=>'{language}'],function(){
     Route::get('/', function () {
+   
     return view('welcome');
 });
 
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('Rating', 'RatingController');
+Route::get('/', 'RatingController@index');
+
 Route::resource('kids', 'KidsController');
 
-
 Route::resource('babies', 'BabyController');
-
-
 Route::resource('Sweets', 'SweetController');
 Route::resource('LunchBoxes', 'LunchBoxController');
+
 Route::post('babies/{id}', 'BabyController@show');
 Route::post('LunchBoxes/{id}', 'LunchBoxController@show');
-
+Route::resource('Sweets/{id}', 'SweetController@show');
 });

@@ -41,10 +41,7 @@
 					<a href="#"><i class="fa fa-twitter"></i></a>
 					
 				</div>
-				<div class="user-panel">
-					<a href="#">Register</a> / 
-					<a href="#">Login</a>
-				</div>
+				
 			</div>
 		</div>
 		<div class="header-bottom">
@@ -82,9 +79,9 @@
 	<div class="search-form-section">
 		<div class="sf-warp">
 			<div class="container">
-				<form class="big-search-form">
+				<form class="big-search-form" action="{{ route('kids.create',app()->getlocale()) }}" method="get">
 					
-					<input type="text" placeholder="Search Receipies">
+					<input type="text" placeholder="Search Receipies"style="text-align:end;">
 					<button class="bsf-btn">Search</button>
 				</form>
 			</div>
@@ -109,7 +106,7 @@
 					<div class="recipe">
 					 <a href="{{route('LunchBoxes.show',[app()->getlocale(),'id'=>$meal->id]) }} "> 
 						<img src="../{{$meal->img}}" alt="">
-                          </a>
+                          
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{$meal->name}}</h3>
@@ -119,6 +116,7 @@
 						</div>
 					</div>
 				</div>
+                 </a>
 				@endforeach
 				
 			</div>
@@ -162,11 +160,10 @@
 				</div>
 				<div class="col-lg-6 text-lg-right">
 					<ul class="footer-menu">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Features</a></li>
-						<li><a href="#">Receipies</a></li>
-						<li><a href="#">Reviews</a></li>
-						<li><a href="#">Contact</a></li>
+					<li><a href="{{route('Sweets.index',app()->getlocale())}}">{{__('Sweets')}}</a></li>
+					<li><a href="{{route('LunchBoxes.index',app()->getlocale())}}">{{__('Lunch Box')}}</a></li> 
+					<li><a href="{{route('babies.index',app()->getlocale())}}">{{__('Baby&Toddler')}}</a></li>
+					<li><a href="{{ url('/') }}">{{__('Home') }}</a></li>
 					</ul>
 					<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>

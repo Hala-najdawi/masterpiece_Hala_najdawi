@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Rating;
+use App\Baby;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
@@ -14,7 +15,11 @@ class RatingController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Baby::select('*')
+        ->where('like_count','>=',2)
+        ->get(); // you were missing the get method
+        return view('welcome',['posts'=>$posts]);
+        //return view('welcome',['posts'=>$posts]);
     }
  
     /**
@@ -24,7 +29,11 @@ class RatingController extends Controller
      */
     public function create()
     {
-        //
+        $posts = Baby::select('*')
+        ->where('type' ,'toddler')
+       ->get(); // you were missing the get method
+      return view('pages/babies',['posts'=>$posts]);
+             
     }
 
     /**
@@ -46,7 +55,11 @@ class RatingController extends Controller
      */
     public function show(Rating $rating)
     {
-        //
+        $posts = Baby::select('*')
+        ->where('updated_at','>=',2)
+        ->get(); // you were missing the get method
+        return view('welcome',['posts'=>$post]);
+        //return view('welcome',['posts'=>$posts]);
     }
 
     /**
@@ -67,9 +80,10 @@ class RatingController extends Controller
      * @param  \App\Rating  $rating
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rating $rating)
+    public function update(Request $request)
     {
-        //
+        
+        
     }
 
     /**

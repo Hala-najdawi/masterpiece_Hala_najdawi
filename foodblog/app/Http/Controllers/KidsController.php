@@ -23,35 +23,28 @@ class KidsController extends Controller
      * @param  \App\Baby  $baby
      * @return \Illuminate\Http\Response
      */
-      public function create()
-      {
-    // //     //
-         $posts = Baby::select('*')
-          ->where('type' ,'toddler')
-          ->get(); // you were missing the get method
-          return view('pages/babies',['posts'=>$posts]);
+    //   public function create()
+    //     {
+    // // // //     //
+    //         $posts = Baby::select('*')
+    //        ->where('type' ,'toddler')
+    //        ->get(); // you were missing the get method
+    //        return view('pages/babies',['posts'=>$posts]);
        
 
-     }
-    public function open()
-    {
-        //
-        // $posts = Baby::select('*')
-        // ->where('type' ,'smoothie')
-        // ->get(); // you were missing the get method
-        // return view('pages/babies',['posts'=>$posts]);
-       
-
-    }
-    public function store(Request $request){
+    //   }
+   
+    
+    public function create(Request $request){
         $search=$request->input('search');
         //dd($search);
         $posts=Baby::select('*')
         ->where('name','LIKE','%'.$search.'%')
         ->get();
         //->paginate(6);
-        //dd($post);
-       return view('pages/babies',[app()->getlocale(),'posts'=>$posts]);
+       // dd($posts);
+      
+       return view('pages/babies',['posts'=>$posts]);
       //return redirect()->route('babies.show',[app()->getlocale(),'post'=>$post]); 
     
     }
