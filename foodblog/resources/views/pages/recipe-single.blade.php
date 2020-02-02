@@ -59,7 +59,7 @@
 
 
 	<!-- Hero section -->
-	<section class="page-top-section set-bg" data-setbg="">
+	<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
 		<div class="container">
         <img src="../../img/page-top-bg.jpg">
 		
@@ -67,7 +67,7 @@
 	</section>
 	<div class="header-bottom">
 			<div class="container">
-				<ul class="main-menu">
+				
 				<ul class="main-menu">
 	                <li><a href="{{route('kids.index',app()->getlocale()) }}">{{__('Smoothie and milkshake')}}</a></li> 
 	                <li><a href="{{route('babies.create',app()->getlocale())}}">{{__('Baby')}}</a></li>
@@ -75,7 +75,7 @@
 					<li><a href="{{route('LunchBoxes.create',app()->getlocale()) }}">{{__('biscuits&cake')}}</a></li>  
 	                <li><a href="{{route('Sweets.create',app()->getlocale()) }}">{{__('jelly')}}</a></li>	
 				</ul>
-				</ul>
+				
 			</div>
 		</div>
 	<!-- Hero section end -->
@@ -85,8 +85,8 @@
 	<div class="search-form-section">
 		<div class="sf-warp">
 			<div class="container">
-				<form class="big-search-form" action="{{ route('kids.store',app()->getlocale()) }}" method="get">
-					<input type="text" placeholder="Search Receipies"style="text-align:end;">
+				<form class="big-search-form" action="{{ route('kids.create',app()->getlocale()) }}" method="get">
+					<input type="text" placeholder="Search Receipies" name="search" style="text-align:end;">
 					<button class="bsf-btn">Search</button>
 				</form>
 			</div>
@@ -96,9 +96,10 @@
 
 	
 	<!-- Recipe big view -->
-	<div style="text-align:center">
+	
+	<div style="text-align:center" >
         <div class="rv-warp set-bg  ">
-        <img src="../../{{$post->img}}" style="margin-top:140px"></div>
+        <img src="../../{{$post->img}}" style="width:1024px;height:683px;"></div>
 	</div>
       
 	<!-- Recipe details section -->
@@ -163,7 +164,7 @@
    <form  name="fbCommentCountform" id="fbCommentCountForm" action="{{ route('babies.update',[app()->getlocale(),'id'=>$post->id]) }}" method="POST">
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="PUT">
-    <input type="text" name="VisitCount" value="{{$post->like_count}}" id="postvisitcount" style="_display">
+    <input type="text" name="VisitCount" style="display: none;" value="{{$post->like_count}}" id="postvisitcount" style="_display">
 	<button style="height: 59px;
     font-size: 14px;
     color: #fff;

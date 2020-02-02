@@ -144,8 +144,8 @@
 			@if($post->created_at <= '23-12-2019')
 				<div class="col-lg-4 col-md-6">
 					<div class="recipe">
-					
-						<img src="{{$post->img}}" alt="">
+					<a href="{{route('babies.show',[app()->getlocale(),'id'=>$post->id]) }} "> 
+						<img src="{{$post->img}}" alt="" style="height:281px">
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{$post->name}}</h3>
@@ -154,7 +154,7 @@
 						
 							</div>
 						</div>
-						
+						</a>
 					</div>
 				</div>
 				@endif
@@ -174,6 +174,7 @@
 					</div>
 			<div class="row">
 			@foreach($posts as $post)
+			@if($post->like_count >= 2)
 				<div class="col-lg-8 col-md-6 ftw-warp" style="padding-left:500px">
 				
 					<ul class="sp-recipes-list">
@@ -194,6 +195,7 @@
 					</ul>
 					
 				</div>
+				@endif
 				@endforeach
 				</div>
 			</div>

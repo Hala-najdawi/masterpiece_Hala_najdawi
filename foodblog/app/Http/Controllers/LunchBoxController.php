@@ -17,7 +17,7 @@ class LunchBoxController extends Controller
     {
         $meals = Baby::select('*')
         ->where('category' ,'lunchbox')
-        ->get();
+        ->paginate(6);
        return view('pages/lunchBox',['meals'=>$meals]);
     }
 
@@ -30,7 +30,8 @@ class LunchBoxController extends Controller
     {
         $posts = Baby::select('*')
         ->where('type' ,'biscuits&cake')
-        ->get(); // you were missing the get method
+        ->paginate(6);
+        //->get(); // you were missing the get method
         return view('pages/view',['posts'=>$posts]);
        
     }

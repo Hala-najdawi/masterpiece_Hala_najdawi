@@ -21,7 +21,7 @@ class BabyController extends Controller
        //return view('pages/Baby');
        $posts = Baby::select('*')
        ->where('category','baby')
-       ->get();
+       ->paginate(9);
        // dd($posts);
         return view('pages/Baby',['posts'=>$posts]);
     }

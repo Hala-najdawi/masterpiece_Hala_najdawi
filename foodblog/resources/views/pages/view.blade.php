@@ -112,7 +112,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="recipe">
 					 <a href="{{route('babies.show',[app()->getlocale(),'id'=>$post->id]) }} "> 
-						<img src="../../{{$post->img}}" alt="">
+						<img src="../../{{$post->img}}" alt="" style="height:281px">
                           
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
@@ -130,9 +130,7 @@
 			
             
 			<div class="site-pagination">
-				<span>01</span>
-				<a href="#">02</a>
-				<a href="#">03</a>
+				{{$posts->links()}}
 			</div>
 		</div>
         </div>

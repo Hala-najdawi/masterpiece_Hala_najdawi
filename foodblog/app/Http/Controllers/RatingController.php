@@ -15,9 +15,10 @@ class RatingController extends Controller
      */
     public function index()
     {
-        $posts = Baby::select('*')
-        ->where('like_count','>=',2)
-        ->get(); // you were missing the get method
+        $posts = Baby::find('*');
+        // ->where('like_count','>=',2)
+        $posts=Baby::paginate(6);
+         // you were missing the get method
         return view('welcome',['posts'=>$posts]);
         //return view('welcome',['posts'=>$posts]);
     }
@@ -32,6 +33,7 @@ class RatingController extends Controller
         $posts = Baby::select('*')
         ->where('type' ,'toddler')
        ->get(); // you were missing the get method
+      
       return view('pages/babies',['posts'=>$posts]);
              
     }

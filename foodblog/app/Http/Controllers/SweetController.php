@@ -17,7 +17,7 @@ class SweetController extends Controller
     {
         $posts = Baby::select('*')
        ->where('category' ,'sweet')
-       ->get();
+       ->paginate(6);
         //dd($posts);
        
          return view('pages/sweet',['posts'=>$posts]);

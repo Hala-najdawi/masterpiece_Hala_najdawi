@@ -112,18 +112,16 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="recipe">
 					 <a href="{{route('babies.show',[app()->getlocale(),'id'=>$post->id]) }} "> 
-						<img src="../../{{$post->img}}" alt="">
-                          
+						<img src="../../{{$post->img}}" style="height:281px" >
 						<div class="recipe-info-warp">
 							<div class="recipe-info">
 								<h3>{{$post->name}}</h3>
-								
-
 							</div>
 						</div>
+						</a>
 					</div>
 				</div>
-                 </a>
+                
 				@endforeach
 				
 			</div>
